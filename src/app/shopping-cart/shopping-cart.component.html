@@ -1,0 +1,21 @@
+<h1>welcome to shopping cart</h1>
+<ng-container *ngIf="shoppingCartItemQuantity">
+
+  <div>you have {{   shoppingCartItemQuantity  }} in your shopping cart</div>
+  <table class="table">
+    <thead>
+      <th>product</th>
+      <th>quantity</th>
+      <th>Price</th>
+    </thead>
+    <tbody>
+     <tr  *ngFor="let p of products">
+        <td>{{p.product["title"]}}</td>
+        <td>{{p["quantity"]}} </td>
+        <td>{{p["quantity"]*p.product["Price"]}}</td>
+      </tr>
+    </tbody>
+    </table>
+    
+    
+</ng-container>

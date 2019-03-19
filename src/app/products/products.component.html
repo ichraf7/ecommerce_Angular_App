@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-3">
+  <product-filter [category]="category"></product-filter>
+  </div>
+  <div class="col-9">
+    <div class="row">
+      <ng-container *ngFor="let p of filtredProduct ; let i=index">
+        <div class="col">
+      <product-card [product]="p" [showActions]="true" [shoppingCart]="cart" ></product-card>
+      <div *ngIf="(i+1)%2 ===0" class="w-100"></div>
+          </div>
+      </ng-container>
+      </div>
+  </div>
+</div>
+
+
+<div class="row">
+<ng-container *ngFor="let p of products$ | async ; let i=index">
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" [src]="p.imageUrl" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{p.title}}</h5>
+          <p class="card-text">{{p.category}}</p>
+          <p class="card-text">{{p.price | currency :'USD':true}}</p>
+          <a href="#" class="btn btn-primary">Add to cart</a>
+        </div>
+      </div>
+      <div *ngIf="(i+1)%2 ===0" class="w-100"></div>
+</ng-container>
+</div>

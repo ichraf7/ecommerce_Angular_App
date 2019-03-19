@@ -1,0 +1,16 @@
+<a routerLink="/admin/products/new">add new product</a>
+<input type="text" class="form-control" placeholder="search..." #query (keyup)="filter(query.value)">
+<table datatable class="table">
+    <thead>
+        <th>title</th>
+        <th>price</th>
+        <th>category</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of filteredProduct">
+        <td>{{p.title}}</td>
+        <td>{{p.price}}</td>
+        <td>{{p.category}}</td>
+    </tr>
+    </tbody>
+</table>
